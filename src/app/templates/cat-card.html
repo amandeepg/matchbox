@@ -1,0 +1,32 @@
+<md-toolbar>
+  <div class="md-toolbar-tools" ng-style="{'background-color': item.color}">
+    <span class="md-flex">{{item.category}}</span>
+  </div>
+</md-toolbar>
+<div class="flip-container">
+  <div class="flipper">
+    <div class="front">
+      <div class="content-wrapper">
+        <div class="content">
+          <div data-fittext data-fittext-max="90" class="avg-price" ng-class="{ green: item.avg > 0 }">
+            {{item.avg | abs | number:2}}
+          </div>
+          <div class="label avg-price-label">Average</div>
+          <div class="std-dev"><span class="label">Relative standard deviation: </span><span>{{item.stdDevPct | abs | percentage:1}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-bar-container">
+        <div class="bottom-bar">
+          <fa name="line-chart" class="icon" ng-click="onChartIconClick($event)"></fa>
+          <fa name="list" class="icon" ng-click="onTableIconClick($event, item.category)"></fa>
+        </div>
+      </div>
+    </div>
+    <div class="back">
+      <canvas id="line" class="chart chart-line" data="item.chart.data" labels="item.chart.labels"
+              options="item.chart.options"
+              width="280" height="280"></canvas>
+    </div>
+  </div>
+</div>

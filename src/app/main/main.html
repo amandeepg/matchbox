@@ -1,0 +1,52 @@
+<div class="container md-whiteframe-z1">
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <span class="md-flex">McD: Mint Category Dashboard</span>
+    </div>
+  </md-toolbar>
+  <md-content class="md-padding">
+    <div class="float">
+      <form style="padding: 20px;">
+        <md-text-float type='month' label="Start Month" ng-model="month.start"></md-text-float>
+
+        <md-text-float type='month' label="End Month" ng-model="month.end"></md-text-float>
+      </form>
+
+      <md-card class="drop-box" ng-file-drag-over-class="file-dragged"
+               ng-file-drop="onFileSelect($files)">Drop Mint Transactions File Here
+      </md-card>
+    </div>
+
+    <div class="float hero">
+      <div>
+        <h2>Features</h2>
+        <ul>
+          <li>See each category's average and a monthly graph.</li>
+          <li>All processing is done client-side so your data is never uploaded anywhere.</li>
+        </ul>
+        <h2>Instructions</h2>
+        <ul>
+          <li>Log in to <a href="https://wwws.mint.com/login.event" target="_blank">Mint</a>.</li>
+          <li>Download your <a href="https://wwws.mint.com/transactionDownload.event" target="_blank">transactions.csv from Mint</a>.</li>
+          <li>Drag the downloaded file to this page.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="clear"></div>
+    <hr class="faded" />
+
+    <h2>Expenses</h2>
+    <md-card class="cat-card" ng-repeat="item in content | filter: lessThan('avg', 0) | orderBy:sortByAbsAvg:true"
+             ng-include="'app/templates/cat-card.html'">
+    </md-card>
+
+    <h2>Income</h2>
+    <md-card class="cat-card"
+             ng-repeat="item in content | filter: greaterThan('avg', 0) | orderBy:sortByAbsAvg:true"
+             ng-include="'app/templates/cat-card.html'">
+    </md-card>
+  </md-content>
+
+</div>
