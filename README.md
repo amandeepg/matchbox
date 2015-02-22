@@ -1,6 +1,6 @@
-# McD: Mint Category Dashboard
+# Matchbox (**M**in**t** **C**ategory Das**hbo**ard)
 
-McD is a dashboard for Mint that shows you at-a-glance where you spend and earn your money.
+Matchbox is a dashboard for Mint that shows you at-a-glance where you spend and earn your money.
 
 ## Features
 * Client-side processing so no data is ever uploaded.

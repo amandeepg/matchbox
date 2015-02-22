@@ -1,41 +1,62 @@
-<div class="container md-whiteframe-z1">
-
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <span class="md-flex">McD: Mint Category Dashboard</span>
+<div ng-file-drag-over-class="file-dragged"
+     ng-file-drop="onFileSelect($files)">
+  <div class="drag-overlay">
+    <div>
+      <fa name="arrow-down"></fa>
+      Drop Mint transactions.csv here
     </div>
-  </md-toolbar>
-  <md-content class="md-padding">
-    <div class="float">
-      <form style="padding: 20px;">
-        <md-text-float type='month' label="Start Month" ng-model="month.start"></md-text-float>
-
-        <md-text-float type='month' label="End Month" ng-model="month.end"></md-text-float>
-      </form>
-
-      <md-card class="drop-box" ng-file-drag-over-class="file-dragged"
-               ng-file-drop="onFileSelect($files)">Drop Mint Transactions File Here
-      </md-card>
+  </div>
+  <div class="top-bar" layout="row" layout-wrap>
+    <div flex="5"></div>
+    <div class="big-logo-container">
+      <img class="big-logo" src="assets/images/fireflame.svg" height="64">
     </div>
-
-    <div class="float hero">
-      <div>
-        <h2>Features</h2>
-        <ul>
-          <li>See each category's average and a monthly graph.</li>
-          <li>All processing is done client-side so your data is never uploaded anywhere.</li>
-        </ul>
-        <h2>Instructions</h2>
-        <ul>
-          <li>Log in to <a href="https://wwws.mint.com/login.event" target="_blank">Mint</a>.</li>
-          <li>Download your <a href="https://wwws.mint.com/transactionDownload.event" target="_blank">transactions.csv from Mint</a>.</li>
-          <li>Drag the downloaded file to this page.</li>
-        </ul>
+    <div flex>
+      <div class="title">
+        Matchbox
+      </div>
+      <div class="subtitle">
+        <b>M</b>in<b>T</b> <b>C</b>ategory Das<b>hbo</b>ard
       </div>
     </div>
+    <div flex="5" class="right-container">
+      <a href="https://github.com/amandeepg/matchbox">
+        <fa name="github" size="2"></fa>
+      </a>
+    </div>
+  </div>
 
-    <div class="clear"></div>
-    <hr class="faded" />
+  <div class="hero" layout="row">
+    <div flex="5"></div>
+    <div flex>
+      <h1>Features</h1>
+      <ul>
+        <li>See each category's average.</li>
+        <li>See each category's monthly graph.</li>
+        <li>All processing is done client-side so your data is never uploaded anywhere.</li>
+      </ul>
+    </div>
+    <div flex="5"></div>
+    <div flex>
+      <h1>Instructions</h1>
+      <ul>
+        <li><a href="https://wwws.mint.com/login.event" target="_blank">Log in</a> to Mint.</li>
+        <li><a href="https://wwws.mint.com/transactionDownload.event" target="_blank">Download</a> your transactions.csv
+          from Mint.
+        </li>
+        <li>Drag the downloaded file to this page.</li>
+      </ul>
+    </div>
+    <div flex="5"></div>
+  </div>
+
+  <md-content class="md-padding">
+    <div>
+      <form>
+        <md-text-float type='month' label="Start Month" ng-model="month.start"></md-text-float>
+        <md-text-float type='month' label="End Month" ng-model="month.end"></md-text-float>
+      </form>
+    </div>
 
     <h2>Expenses</h2>
     <md-card class="cat-card" ng-repeat="item in content | filter: lessThan('avg', 0) | orderBy:sortByAbsAvg:true"

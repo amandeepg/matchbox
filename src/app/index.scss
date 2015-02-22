@@ -12,23 +12,6 @@ body {
   margin: 0;
 }
 
-.container {
-  margin: 1em;
-}
-
-.drop-box {
-  background: palette(Green, 300);
-  width: 200px;
-  height: 65px;
-  text-align: center;
-  transition: all 300ms;
-
-  &.file-dragged {
-    transition: all 300ms;
-    background: palette(Green, 600);
-  }
-}
-
 .cat-card {
   display: inline-block;
   padding: 0;
@@ -62,14 +45,6 @@ body {
   padding: 10px;
 }
 
-.hide {
-  display: none;
-}
-
-.std-dev {
-  display: none;
-}
-
 .label {
   color: palette(Grey, 400)
 }
@@ -88,6 +63,7 @@ body {
 
       .icon {
         cursor: pointer;
+        padding: 3px;
       }
     }
   }
@@ -101,20 +77,107 @@ body {
   clear: both;
 }
 
-hr.faded {
-  clear: both;
+.top-bar {
+  background-color: palette(Deep Orange, 900);
+  padding: 5px;
+  position: fixed;
+  top: 0px;
+  height: 75px;
   width: 100%;
-  height: 1px;
-  background: palette(Grey, 400);
-  margin-top: 30px;
-  margin-bottom: 30px;
+  z-index: 10;
+  color: white;
+
+  .big-logo-container {
+    text-align: right;
+    padding-right: 8px;
+  }
+
+  .title {
+    letter-spacing: 6px;
+    font-family: 'Roboto Slab', serif;
+    font-variant: small-caps;
+    font-size: 2.5em;
+    margin-top: -7px;
+  }
+
+  .subtitle {
+    letter-spacing: 5px;
+    font-family: 'Merriweather', serif;
+    font-size: 0.7em;
+
+    b {
+      font-weight: 900;
+    }
+  }
+
+  .right-container {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    a {
+      color: white;
+    }
+  }
 }
 
 .hero {
-  h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 0.4em;
+  color: white;
+  margin-top: 75px;
+  background-color: palette(Deep Orange, 800);
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  h1, h2, h3, h4, h5 {
+    margin-top: 0px;
+    font-family: 'Roboto Slab', serif;
   }
+
+  a {
+    color: white;
+    font-weight: bolder;
+  }
+
   ul {
-    margin: 0;
+    padding-left: 0;
   }
+
+  ul li {
+    list-style-position: inside
+  }
+}
+
+form {
+  display: flex;
+
+  md-input-group {
+    padding-right: 10px;
+  }
+}
+
+.file-dragged {
+  .drag-overlay {
+    opacity: 1;
+    display: flex;
+  }
+}
+
+.drag-overlay {
+  display: none;
+  transition: opacity .25s ease-in-out;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(palette(Grey, 800), 0.6);
+  border: 10px dashed palette(Grey, 600);
+  z-index: 20;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 5em;
+  color: white;
 }
