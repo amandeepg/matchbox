@@ -165,7 +165,7 @@ angular.module('mcd')
     };
 
     $scope.onChartIconClick = function (ev) {
-      var flipper = $(ev.target.closest('.flipper'));
+      var flipper = $(ev.target).closest('.flipper');
       flipper.addClass('flip');
       flipper.mouseleave(function () {
         flipper.removeClass('flip');
