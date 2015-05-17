@@ -118,9 +118,7 @@ angular.module('mcd')
           return o;
         })
         .value();
-      if (cats.length > 0) {
-        $scope.content = cats;
-      }
+      $scope.content = cats;
     };
 
     $scope.$watch('transactions', recalc);
