@@ -105,8 +105,9 @@ angular.module('mcd')
               }).value()
             ],
             options: {
+              show: false,
               scaleBeginAtZero: true,
-              animation: true,
+              animation: false,
               bezierCurveTension: 0.3,
               tooltipTemplate: '' +
                 '<%if (label) {%>' +
@@ -162,16 +163,17 @@ angular.module('mcd')
       };
     };
 
-    $scope.onChartIconClick = function (ev) {
+    $scope.onChartIconClick = function (ev, item) {
       var flipper = $(ev.target).closest('.flipper');
       flipper.addClass('flip');
       flipper.mouseleave(function () {
         flipper.removeClass('flip');
       });
+      item.chart.options.show = true;
     };
 
-    $scope.onTableIconClick = function (ev, categoryName) {
-      window.open('https://wwws.mint.com/transaction.event#location:' + encodeURIComponent('{"query":"category:' + categoryName + '"}'));
+    $scope.onTableIconClick = function (ev, item) {
+      window.open('https://wwws.mint.com/transaction.event#location:' + encodeURIComponent('{"query":"category:' + item.category + '"}'));
     };
   })
   .filter('abs', function () {

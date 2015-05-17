@@ -18,13 +18,13 @@
       </div>
       <div class="bottom-bar-container">
         <div class="bottom-bar">
-          <fa name="line-chart" class="icon" ng-click="onChartIconClick($event)"></fa>
-          <fa name="list" class="icon" ng-click="onTableIconClick($event, item.category)"></fa>
+          <fa name="line-chart" class="icon" ng-click="onChartIconClick($event, item)"></fa>
+          <fa name="list" class="icon" ng-click="onTableIconClick($event, item)"></fa>
         </div>
       </div>
     </div>
     <div class="back">
-      <canvas id="line" class="chart chart-line" data="item.chart.data" labels="item.chart.labels"
+      <canvas ng-if="item.chart.options.show" id="line" class="chart chart-line" data="item.chart.data" labels="item.chart.labels"
               options="item.chart.options"
               width="280" height="280"></canvas>
     </div>
