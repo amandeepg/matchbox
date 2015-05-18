@@ -14,6 +14,7 @@ body {
 
 .cat-card {
   display: inline-block;
+  position: relative;
   padding: 0;
   vertical-align: top;
 
@@ -40,11 +41,11 @@ body {
     }
   }
 
-  .bottom-bar-container {
+  .on-card-hover {
     display: none;
   }
 
-  &:hover .bottom-bar-container {
+  &:hover .on-card-hover {
     display: block;
   }
 }
@@ -192,4 +193,16 @@ form {
 
 .full-height {
   height: 100%;
+}
+
+.top-icons {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 2;
+
+  .icon {
+    padding: 10px;
+    cursor: pointer;
+  }
 }

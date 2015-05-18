@@ -3,6 +3,9 @@
     <span class="md-flex">{{item.category}}</span>
   </div>
 </md-toolbar>
+<div class="top-icons on-card-hover">
+  <fa name="times-circle" class="icon" ng-click="onCloseItemEvent($event, item)"></fa>
+</div>
 <div class="flip-container">
   <div class="flipper">
     <div class="front">
@@ -16,7 +19,7 @@
           </div>
         </div>
       </div>
-      <div class="bottom-bar-container">
+      <div class="bottom-bar-container on-card-hover">
         <div class="bottom-bar">
           <fa name="line-chart" class="icon" ng-click="onChartIconClick($event, item)"></fa>
           <fa name="list" class="icon" ng-click="onTableIconClick($event, item)"></fa>

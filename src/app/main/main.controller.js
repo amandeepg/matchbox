@@ -48,6 +48,14 @@ angular.module('mcd')
       }
     });
 
+    $localForage.getItem('excludes').then(function (data) {
+      if (!data) {
+        $scope.excludes = [];
+      } else {
+        $scope.excludes = data;
+      }
+    });
+
     var recalc = function () {
       if (!$scope.month || !$scope.transactions) {
         return;
@@ -163,6 +171,12 @@ angular.module('mcd')
       };
     };
 
+    $scope.notExcluded = function () {
+      return function (item) {
+        return $.inArray(item.category, $scope.excludes) === -1;
+      };
+    };
+
     $scope.onChartIconClick = function (ev, item) {
       var flipper = $(ev.target).closest('.flipper');
       flipper.addClass('flip');
@@ -174,6 +188,11 @@ angular.module('mcd')
 
     $scope.onTableIconClick = function (ev, item) {
       window.open('https://wwws.mint.com/transaction.event#location:' + encodeURIComponent('{"query":"category:' + item.category + '"}'));
+    };
+
+    $scope.onCloseItemEvent = function (ev, item) {
+      $scope.excludes.push(item.category);
+      $localForage.setItem('excludes', $scope.excludes);
     };
   })
   .filter('abs', function () {

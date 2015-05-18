@@ -60,7 +60,7 @@
     </div>
 
     <h2>Expenses</h2>
-    <md-card class="cat-card" ng-repeat="item in content | filter: lessThan('avg', 0) | orderBy:sortByAbsAvg:true"
+    <md-card class="cat-card" ng-repeat="item in content | filter: lessThan('avg', 0) | filter: notExcluded() | orderBy:sortByAbsAvg:true"
              ng-include="'app/templates/cat-card.html'">
     </md-card>
 
