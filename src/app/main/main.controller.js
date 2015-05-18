@@ -194,6 +194,12 @@ angular.module('mcd')
       $scope.excludes.push(item.category);
       $localForage.setItem('excludes', $scope.excludes);
     };
+
+    $scope.onTrashAll = function (ev) {
+      $scope.transactions = [];
+      $scope.excludes = [];
+      $localForage.clear();
+    };
   })
   .filter('abs', function () {
     return function (val) {

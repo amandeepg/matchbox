@@ -206,3 +206,12 @@ form {
     cursor: pointer;
   }
 }
+
+.content-container {
+  position: relative;
+}
+
+.trash-data {
+  color: palette(Grey, 600);
+  display: inline;
+}

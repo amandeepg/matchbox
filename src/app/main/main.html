@@ -51,7 +51,13 @@
     <div flex="5"></div>
   </div>
 
-  <md-content ng-if="content.length > 0" class="md-padding">
+  <md-content ng-if="content.length > 0" class="md-padding content-container">
+    <div class="top-icons">
+      <div class="trash-data icon" ng-click="onTrashAll($event)">
+        Remove all data
+        <fa name="trash" class="icon"></fa>
+      </div>
+    </div>
     <div>
       <form>
         <md-text-float type='month' label="Start Month" ng-model="month.start"></md-text-float>
