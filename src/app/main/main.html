@@ -51,26 +51,26 @@
     <div flex="5"></div>
   </div>
 
-  <md-content ng-if="content.length > 0" class="md-padding content-container">
-    <div class="top-icons">
+  <md-content class="md-padding content-container">
+    <div ng-if="transactions.length > 0" class="top-icons">
       <div class="trash-data icon" ng-click="onTrashAll($event)">
         Remove all data
         <fa name="trash" class="icon"></fa>
       </div>
     </div>
     <div>
-      <form>
+      <form ng-if="transactions.length > 0">
         <md-text-float type='month' label="Start Month" ng-model="month.start"></md-text-float>
         <md-text-float type='month' label="End Month" ng-model="month.end"></md-text-float>
       </form>
     </div>
 
-    <h2>Expenses</h2>
+    <h2 ng-if="content.length > 0">Expenses</h2>
     <md-card class="cat-card" ng-repeat="item in content | filter: lessThan('avg', 0) | filter: notExcluded() | orderBy:sortByAbsAvg:true"
              ng-include="'app/templates/cat-card.html'">
     </md-card>
 
-    <h2>Income</h2>
+    <h2 ng-if="content.length > 0">Income</h2>
     <md-card class="cat-card"
              ng-repeat="item in content | filter: greaterThan('avg', 0) | filter: notExcluded() | orderBy:sortByAbsAvg:true"
              ng-include="'app/templates/cat-card.html'">
