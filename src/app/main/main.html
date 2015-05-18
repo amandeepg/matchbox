@@ -72,7 +72,7 @@
 
     <h2>Income</h2>
     <md-card class="cat-card"
-             ng-repeat="item in content | filter: greaterThan('avg', 0) | orderBy:sortByAbsAvg:true"
+             ng-repeat="item in content | filter: greaterThan('avg', 0) | filter: notExcluded() | orderBy:sortByAbsAvg:true"
              ng-include="'app/templates/cat-card.html'">
     </md-card>
   </md-content>
