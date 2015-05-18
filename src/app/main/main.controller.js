@@ -187,16 +187,16 @@ angular.module('mcd')
       item.chart.options.show = true;
     };
 
-    $scope.onTableIconClick = function (ev, item) {
+    $scope.onTableIconClick = function (item) {
       window.open('https://wwws.mint.com/transaction.event#location:' + encodeURIComponent('{"query":"category:' + item.category + '"}'));
     };
 
-    $scope.onCloseItemEvent = function (ev, item) {
+    $scope.onCloseItemEvent = function (item) {
       $scope.excludes.push(item.category);
       $localForage.setItem('excludes', $scope.excludes);
     };
 
-    $scope.onTrashAll = function (ev) {
+    $scope.onTrashAll = function () {
       $scope.transactions = [];
       $scope.excludes = [];
       $localForage.clear();
