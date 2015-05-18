@@ -39,6 +39,14 @@ body {
       }
     }
   }
+
+  .bottom-bar-container {
+    display: none;
+  }
+
+  &:hover .bottom-bar-container {
+    display: block;
+  }
 }
 
 .back {
