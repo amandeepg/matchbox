@@ -50,7 +50,7 @@
     <div flex="5"></div>
   </div>
 
-  <md-content class="md-padding">
+  <md-content ng-if="content.length > 0" class="md-padding">
     <div>
       <form>
         <md-text-float type='month' label="Start Month" ng-model="month.start"></md-text-float>
