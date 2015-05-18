@@ -114,6 +114,7 @@ angular.module('mcd')
             ],
             options: {
               show: false,
+              showTooltips: false,
               scaleBeginAtZero: true,
               animation: false,
               bezierCurveTension: 0.3,
