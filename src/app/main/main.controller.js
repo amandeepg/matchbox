@@ -128,7 +128,11 @@ angular.module('mcd')
           return o;
         })
         .value();
-      $scope.content = cats;
+      clearTimeout($scope.setContentTimeout);
+      $scope.setContentTimeout = setTimeout(function (data) {
+        $scope.content = data;
+        $scope.$apply();
+      }, 150, cats);
     };
 
     $scope.$watch('transactions', recalc);
